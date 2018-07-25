@@ -1,4 +1,6 @@
-function init() {}
+function init() {
+	tools.autoSynSart();
+}
 
 qr.hdScan = function (msg) {
 	var o = tools.parseTag(msg);
@@ -40,7 +42,7 @@ dat = {
 	setL: function (c) {
 		if (c && dat.codL !== c) {
 			if (dat.codL) {
-				tools.memo("注：库位变动！", 1000);
+				tools.memo("注：库位变动！", 3000);
 			}
 			dat.codL = c;
 			sloDom.innerHTML = c;
@@ -79,6 +81,13 @@ dat = {
 	// 刷新页面
 	flushUI: function (o) {
 		if (o) {
+			// 限制物料再次入库
+			if (o.codL) {
+				dat.clearUI();
+				tools.memo("该物料已入库！");
+				return;
+			}
+
 			switch(o.typ) {
 				case "M":
 					dat.setCod(o.cod);
@@ -98,7 +107,7 @@ dat = {
 			}
 		} else {
 			dat.clearUI();
-			tools.memo("不可识别的信息！", 1000);
+			tools.memo("不可识别的信息！", 3000);
 		}
 	},
 
@@ -138,6 +147,7 @@ dat = {
 	},
 
 	back: function () {
+		tools.autoSynStop();
 		window.history.back();
 	}
 };

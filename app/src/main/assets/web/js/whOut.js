@@ -1,4 +1,6 @@
-function init() {}
+function init() {
+	tools.autoSynSart();
+}
 
 qr.hdScan = function (msg) {
 	var o = tools.parseTag(msg);
@@ -114,7 +116,7 @@ dat = {
 				tools.memo("该物料尚未入库！");
 			}
 		} else {
-			tools.memo("不可识别的信息！", 1000);
+			tools.memo("不可识别的信息！", 3000);
 		}
 	},
 
@@ -151,6 +153,7 @@ dat = {
 	},
 
 	back: function () {
+		tools.autoSynStop();
 		window.history.back();
 	}
 };

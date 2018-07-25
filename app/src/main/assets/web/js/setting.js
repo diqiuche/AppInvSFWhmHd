@@ -29,7 +29,7 @@ dat = {
 
 	syn: function () {
 		if (qr.syn ()) {
-			tools.memo("完成！", 1000);
+			tools.memo("完成！", 3000);
 		} else {
 			tools.memo("数据同步失败！");
 		}

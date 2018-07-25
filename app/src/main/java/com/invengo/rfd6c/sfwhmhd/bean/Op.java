@@ -48,7 +48,7 @@ public class Op extends BaseBean {
 
 	@Override
 	public String getDelSql() {
-		String r = "delete from Op where PartsCode='<0>', OpType='<1>', Info='<2>'";
+		String r = "delete from Op where PartsCode='<0>' and OpType='<1>' and Info='<2>'";
 		return meg(r, PartsCode, OpType, Info);
 	}
 

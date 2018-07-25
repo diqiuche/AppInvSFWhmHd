@@ -130,7 +130,7 @@ public class Synchro {
 			TableVersion tv;
 			String nam;
 			int v;
-			//Log.i("---", "001");
+//Log.i("---", "001");
 
 			// 版本比对
 			for (int i = 0; i < ls.size(); i ++) {
@@ -156,7 +156,7 @@ public class Synchro {
 					}
 				}
 			}
-			//Log.i("---", "002 , ");
+//Log.i("---", "002 , ");
 			db.exe((sqls));
 		}
 
@@ -172,10 +172,11 @@ public class Synchro {
 			List<TableVersionOP> ls = gson.fromJson(req, clsTvop);
 			List<String> sqls = new ArrayList<String>();
 //Log.i("---", "003 , " + tbNam);
+//Log.i("---", req);
 			for (TableVersionOP tvo : ls) {
 				BaseBean bb = null;
 //Log.i("------" + tvo.getOpType() + "------", tvo.getTableName() + " , " + tvo.getOpTablePK());
-//Log.i("---", tvo.getInfo());
+//Log.i("---", "." + tvo.getInfo());
 				switch (tvo.getTableName()) {
 					case "TB_INVENTORY":
 						bb = gson.fromJson(tvo.getInfo(), Inventory.class);

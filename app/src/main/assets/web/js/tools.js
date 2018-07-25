@@ -34,7 +34,7 @@ tools = {
 
 	memo: function (msg, tim) {
 		if (!tim) {
-			tim = 2000;
+			tim = 5000;
 		}
 		tools.memoHid();
 		memoDom.innerHTML = msg;
@@ -50,6 +50,25 @@ tools = {
 			memoDom.innerHTML = "";
 			tools.memoTim = 0;
 		}
+	},
+
+	// 自动同步
+	autoSynId: 0,
+	autoSyn: function () {
+		if (qr.syn ()) {
+			tools.memo("数据同步成功！", 1000);
+		} else {
+			tools.memo("有数据更新，请及时同步！", 2000);
+		}
+	},
+	autoSynSart: function () {
+		if (tools.autoSynId === 0) {
+			tools.autoSynId = setInterval(tools.autoSyn, 60000);
+		}
+	},
+	autoSynStop: function () {
+		clearInterval(tools.autoSynId);
+		tools.autoSynId = 0;
 	}
 
 };
