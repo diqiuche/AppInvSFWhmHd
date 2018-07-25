@@ -1,0 +1,195 @@
+.clrRed {
+	background-color: #c70019;
+	color: #FFF;
+}
+
+.clrYellow {
+	background-color: #F5C32C;
+}
+
+.clrLightYellow {
+	background-color: #FF0;
+}
+
+.bg {
+	background-repeat: no-repeat;
+	background-position: center center;
+	/*background-size: contain;*/
+	background-size: cover;
+	background-image: url(../img/bg.png);
+}
+
+/*布局 上*/
+.lyT {
+	height: 10%;
+}
+
+/*布局 中*/
+.lyM {
+	height: 82%;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+/*布局 下*/
+.lyB {
+	height: 8%;
+}
+
+.lyMa {
+	height: 90%;
+}
+
+/*标题*/
+.ttl {
+	font-weight: bold;
+	line-height: 1.7;
+	padding-left: 0.5rem;
+	min-height: 2.2rem;
+}
+
+/*虚化背景*/
+.alpBg {
+	background-color: rgba(233, 233, 233, 0.8);
+}
+
+/*信息提示*/
+.memo {
+	color: red;
+	font-style: italic;
+	margin-top: 0.7rem;
+}
+
+/*---------------------- 首页 ----------------------*/
+
+.hom_bg {
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	background-image: url(../img/bg1.png);
+}
+
+.hom_body {
+	text-align: center;
+	padding-top: 0.3rem;
+}
+
+.hom_btn {
+	display: inline-block;
+	text-align: left;
+	margin: 2%;
+	padding-left: 17%;
+	width: 28%;
+	line-height: 4;
+	background-color: rgba(255, 255, 255, 0.6);
+	color: #222;
+	background-repeat: no-repeat;
+	background-position: 0.3rem center;
+	background-size: 2.3rem 2.3rem;
+}
+.hom_btn:hover {
+	background-color: #c70019;
+	color: #FFF;
+}
+
+.hom_btn_whIn {
+	background-image: url(../img/whIn.png);
+}
+.hom_btn_whIn:hover {
+	background-image: url(../img/whInH.png);
+}
+
+.hom_btn_whOut {
+	background-image: url(../img/whOut.png);
+}
+.hom_btn_whOut:hover {
+	background-image: url(../img/whOutH.png);
+}
+
+.hom_btn_whPan {
+	background-image: url(../img/whPan.png);
+}
+.hom_btn_whPan:hover {
+	background-image: url(../img/whPanH.png);
+}
+
+.hom_btn_whScn {
+	background-image: url(../img/whScn.png);
+}
+.hom_btn_whScn:hover {
+	background-image: url(../img/whScnH.png);
+}
+
+.hom_btn_about {
+	background-image: url(../img/about.png);
+}
+.hom_btn_about:hover {
+	background-image: url(../img/aboutH.png);
+}
+
+.hom_btn_setting {
+	background-image: url(../img/setting.png);
+}
+.hom_btn_setting:hover {
+	background-image: url(../img/settingH.png);
+}
+
+/*---------------------- 入库 ----------------------*/
+
+.in_out {
+	padding: 1rem 0 0 1rem;
+}
+
+.in_item {
+	line-height: 1.8;
+}
+
+.in_num {
+	width: 53%;
+	padding-left: 0.5rem;
+	line-height: 1.9rem;
+}
+
+.in_btn {
+	padding: 0 1rem;
+	line-height: 2rem;
+}
+
+.in_btnO {
+	position: relative;
+	left: -0.5rem;
+}
+
+/*---------------------- 设置 ----------------------*/
+
+.set_item {
+	width: 30%;
+	line-height: 2;
+	text-align: right;
+}
+
+.set_txt {
+	padding-left: 0.3rem;
+	width: 55%;
+}
+
+/*---------------------- 关于 ----------------------*/
+
+.abt_bg {
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	background-image: url(../img/bg2.jpg);
+}
+
+.abt_body {
+	position: absolute;
+	bottom: 4rem;
+	left: 1rem;
+}
+
+/*---------------------- 出库 ----------------------*/
+
+/*---------------------- 盘点 ----------------------*/
+
+/*---------------------- 查询 ----------------------*/

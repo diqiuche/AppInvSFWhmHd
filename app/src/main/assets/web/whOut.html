@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>WhOut</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0" />
+		<meta charset="utf-8" />
+		<link href="css/base.css" rel="stylesheet" type="text/css" />
+		<link href="css/s01.css" rel="stylesheet" type="text/css" />
+		<script src="js/tools.js"></script>
+		<script src="js/qr.js"></script>
+		<script src="js/whOut.js"></script>
+
+		<style type="text/css">
+		</style>
+	</head>
+
+	<body>
+		<div id="boso" class="boso Lc_noadr bg">
+			<div class="lyT clrRed bfs ttl">
+				出库
+			</div>
+			<div class="lyM alpBg">
+				<div class="in_out">
+					<div class="in_item sfs">
+						出库数量 ：
+					</div>
+					<div class="midOut">
+						<div id="numSubDom" class="midSub in_btn clrYellow mfs" ontouchstart="dat.subNum(1);this.className = 'midSub in_btn clrLightYellow mfs';" ontouchend="this.className = 'midSub in_btn clrYellow mfs';">-</div><!--
+						--><input id="numDom" class="midSub in_num mfs" type="number" onchange="dat.chkNum();"/><!--
+						--><div id="numAddDom" class="midSub in_btn in_btnO clrYellow mfs" ontouchstart="dat.addNum(1);this.className = 'midSub in_btn in_btnO clrLightYellow mfs';" ontouchend="this.className = 'midSub in_btn in_btnO clrYellow mfs';">+</div>
+					</div>
+					<div>
+						<div class="midSub in_item sfs">物料编码 ： </div><!--
+						--><div id="sidDom" class="midSub sfs"></div>
+					</div>
+					<div>
+						<div class="midSub in_item sfs">物料名称 ： </div><!--
+						--><div id="snamDom" class="midSub sfs"></div>
+					</div>
+					<div>
+						<div class="midSub in_item sfs">规格型号 ： </div><!--
+						--><div id="spartDom" class="midSub sfs"></div>
+					</div>
+					<div>
+						<div class="midSub in_item sfs">主机厂编码 ： </div><!--
+						--><div id="smfCodDom" class="midSub sfs"></div>
+					</div>
+					<div>
+						<div class="midSub in_item sfs">批次号 ： </div><!--
+						--><div id="sbnDom" class="midSub sfs"></div>
+					</div>
+					<div>
+						<div class="midSub in_item sfs">库存数量 ： </div><!--
+						--><div id="snumDom" class="midSub sfs"></div>
+					</div>
+					<div>
+						<div class="midSub in_item sfs">库位 ： </div><!--
+						--><div id="sloDom" class="midSub sfs"></div>
+					</div>
+					<div id="memoDom" class="memo sfs midOut"></div>
+				</div>
+			</div>
+			<div class="lyB alpBg midOut">
+				<div class="midTop"></div><!--
+				--><div class="midSub in_btn clrYellow mfs" ontouchstart="this.className = 'midSub in_btn clrLightYellow mfs';" ontouchend="this.className = 'midSub in_btn clrYellow mfs';" onclick="dat.sav();">下 架</div>
+			</div>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		document.body.onload = init;
+	</script>
+</html>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.invengo.rfd6c.sfwhmhd">
+
+    <!-- 写 SD 卡-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <!-- 网络访问 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!-- 查看当前网络状态 -->
+    <!-- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/> -->
+
+    <!-- 摄像头 -->
+    <!-- <uses-permission android:name="android.permission.CAMERA"/> -->
+
+    <!-- 闪光灯 -->
+    <!-- <uses-permission android:name="android.permission.FLASHLIGHT"/> -->
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:name=".Ma">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

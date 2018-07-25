@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>WhQry</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0" />
+		<meta charset="utf-8" />
+		<link href="css/base.css" rel="stylesheet" type="text/css" />
+		<link href="css/s01.css" rel="stylesheet" type="text/css" />
+		<script src="js/tools.js"></script>
+		<script src="js/qr.js"></script>
+		<script src="js/whQry.js"></script>
+
+		<style type="text/css">
+		</style>
+	</head>
+
+	<body>
+		<div id="boso" class="boso Lc_noadr bg">
+			<div class="lyT clrRed bfs ttl">
+				查询
+			</div>
+			<div class="lyM lyMa alpBg">
+				<div id="soutDom" class="in_out">
+					<div class="mfs">物料信息<br/><br/></div>
+					<div>
+						<div class="midSub in_item sfs">物料编码 ： </div><!--
+						--><div id="sidDom" class="midSub sfs"></div>
+					</div>
+					<div>
+						<div class="midSub in_item sfs">物料名称 ： </div><!--
+						--><div id="snamDom" class="midSub sfs"></div>
+					</div>
+					<div>
+						<div class="midSub in_item sfs">规格型号 ： </div><!--
+						--><div id="spartDom" class="midSub sfs"></div>
+					</div>
+					<div>
+						<div class="midSub in_item sfs">主机厂编码 ： </div><!--
+						--><div id="smfCodDom" class="midSub sfs"></div>
+					</div>
+					<div>
+						<div class="midSub in_item sfs">批次号 ： </div><!--
+						--><div id="sbnDom" class="midSub sfs"></div>
+					</div>
+					<div>
+						<div class="midSub in_item sfs">已有数量 ： </div><!--
+						--><div id="snumDom" class="midSub sfs"></div>
+					</div>
+					<div>
+						<div class="midSub in_item sfs">库位 ： </div><!--
+						--><div id="sloDom" class="midSub sfs"></div>
+					</div>
+				</div>
+				<div id="loutDom" class="in_out Lc_nosee">
+					<div class="mfs">库位信息<br/><br/></div>
+					<div>
+						<div class="midSub in_item sfs">库位编码 ： </div><!--
+						--><div id="lidDom" class="midSub sfs"></div>
+					</div>
+				</div>
+				<div id="memoDom" class="memo sfs midOut"></div>
+			</div>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		document.body.onload = init;
+	</script>
+</html>

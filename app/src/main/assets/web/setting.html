@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Setting</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0" />
+		<meta charset="utf-8" />
+		<link href="css/base.css" rel="stylesheet" type="text/css" />
+		<link href="css/s01.css" rel="stylesheet" type="text/css" />
+		<script src="js/tools.js"></script>
+		<script src="js/qr.js"></script>
+		<script src="js/setting.js"></script>
+
+		<style type="text/css">
+		</style>
+	</head>
+
+	<body>
+		<div id="boso" class="boso Lc_noadr bg">
+			<div class="lyT clrRed bfs ttl">
+				设置
+			</div>
+			<div class="lyM alpBg">
+				<div class="in_out">
+					<div>
+						<div class="midSub set_item sfs">IP ： </div><!--
+						--><input id="ipDom" class="midSub set_txt sfs" placeholder="请输入IP地址"/>
+					</div>
+					<div>
+						<div class="midSub set_item sfs">端口 ： </div><!--
+						--><input id="portDom" type="number" class="midSub set_txt sfs" placeholder="请输入端口号"/>
+					</div>
+					<div id="memoDom" class="memo sfs midOut"></div>
+				</div>
+			</div>
+			<div class="lyB alpBg midOut">
+				<div class="midTop"></div><!--
+				--><div class="midSub in_btn clrYellow mfs" ontouchstart="this.className = 'midSub in_btn clrLightYellow mfs';" ontouchend="this.className = 'midSub in_btn clrYellow mfs';" onclick="dat.sav();">保 存</div>
+			</div>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		document.body.onload = init;
+	</script>
+</html>
