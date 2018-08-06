@@ -11,6 +11,12 @@
 	background-color: #FF0;
 }
 
+.clrBtnRed {
+}
+
+.clrBtnGray {
+}
+
 .bg {
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -186,6 +192,69 @@
 	position: absolute;
 	bottom: 4rem;
 	left: 1rem;
+}
+
+/*---------------------- 登录 ----------------------*/
+
+.sign_in_bg {
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	background-image: url(../img/signBg.png);
+}
+
+.sign_in_logo {
+	width: 100%;
+	height: 2rem;
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-size: contain;
+	background-image: url(../img/logo.png);
+}
+
+.sign_in_nam {
+	width: 100%;
+	height: 3.8rem;
+	margin-top: 1rem;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+	background-image: url(../img/signT.png);
+}
+
+.sign_in_out {
+	width: 70%;
+	margin: 1rem auto 0 auto;
+	padding: 0 3%;
+	border-bottom: solid 0.1rem #000;
+	line-height: 1.5;
+	font-weight: bold;
+}
+
+.sign_in_txt {
+	width: 60%;
+	font-weight: normal;
+	background-color: inherit;
+}
+
+.sign_in_btn {
+	display: inline-block;
+	line-height: 1.5;
+	padding: 0 2rem;
+}
+
+.sign_in_btn_left {
+	border-radius: 2rem 0 0 2rem;
+	background-color: #A90015;
+	color: #FFF;
+	border: solid 1px #A90015;
+}
+
+.sign_in_btn_right {
+	border-radius: 0 2rem 2rem 0;
+	background-color: #E6E6E6;
+	color: #000;
+	border: solid 1px #888;
 }
 
 /*---------------------- 出库 ----------------------*/

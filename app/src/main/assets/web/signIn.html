@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SignIn</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0" />
+		<meta charset="utf-8" />
+		<link href="css/base.css" rel="stylesheet" type="text/css" />
+		<link href="css/s01.css" rel="stylesheet" type="text/css" />
+		<script src="js/tools.js"></script>
+		<script src="js/qr.js"></script>
+		<script src="js/signIn.js"></script>
+
+		<style type="text/css">
+		</style>
+	</head>
+
+	<body>
+		<div id="boso" class="boso Lc_noadr sign_in_bg">
+			<div class="sign_in_logo"></div>
+			<div class="sign_in_nam"></div>
+			<div class="sign_in_out sfs">
+				用户名：
+				<input id="uidDom" class="sign_in_txt sfs"/>
+			</div>
+			<div class="sign_in_out sfs">
+				密&nbsp;&nbsp;&nbsp;&nbsp;码：
+				<input id="pwDom" class="sign_in_txt sfs" type="password"/>
+			</div>
+			<div class="midOut">
+				<div class="mfs"><br/><br/></div>
+				<div class="sign_in_btn sign_in_btn_left clrBtnRed mfs" onclick="dat.signIn();">登 录</div><!--
+				--><a class="sign_in_btn sign_in_btn_right clrBtnGray mfs" href="setting.html">配 置</a>
+			</div>
+			<div id="memoDom" class="memo sfs midOut"></div>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		document.body.onload = init;
+	</script>
+</html>

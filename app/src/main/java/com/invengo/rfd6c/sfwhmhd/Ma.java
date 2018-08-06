@@ -24,7 +24,10 @@ public class Ma extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_ma);
 
-		// 二维码设置
+		// RFID初始化
+		w.initRd();
+
+		// 二维码初始化
 		w.initQr();
 
 		// 页面设置
@@ -35,7 +38,11 @@ public class Ma extends AppCompatActivity {
 //		wv.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY);
 		wv.addJavascriptInterface(w, "rfdo");
 
-		sendUrl(EmUrl.Home);	// 测试用_Test
+		sendUrl(EmUrl.SignIn);
+//		sendUrl(EmUrl.ScanTt);	// 测试用
+//		sendUrl(EmUrl.QrTt);	// 测试用
+
+//		w.testSyn();	// 测试用
 	}
 
 	@Override
@@ -52,6 +59,7 @@ public class Ma extends AppCompatActivity {
 
 	@Override
 	protected void onDestroy() {
+		w.signOut();
 		super.onDestroy();
 		w.qrDestroy();
 	}
@@ -64,6 +72,9 @@ public class Ma extends AppCompatActivity {
 					EmUrl e = getCurUi();
 					if (e != null) {
 						switch (getCurUi()) {
+							case WhInRd:
+							case WhOutRd:
+							case WhQryRd:
 							case ScanTt:
 								w.rfidScan();
 								break;
@@ -82,6 +93,7 @@ public class Ma extends AppCompatActivity {
 				EmUrl e = getCurUi();
 				if (e != null) {
 					switch (e) {
+						case SignIn:
 						case Home:
 							return super.onKeyDown(keyCode, event);
 						default:
@@ -120,7 +132,7 @@ public class Ma extends AppCompatActivity {
 
 	// 页面跳转
 	public void sendUrl (String url) {
-		//		Log.i("---", url);
+//		Log.i("---", url);
 		uh.sendMessage(uh.obtainMessage(EmUh.Url.ordinal(), 0, 0, url));
 	}
 

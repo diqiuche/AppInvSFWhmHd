@@ -38,16 +38,18 @@ tools = {
 		}
 		tools.memoHid();
 		memoDom.innerHTML = msg;
-		tools.memoTim = setTimeout(function () {
-			memoDom.innerHTML = "";
-			tools.memoTim = 0;
-		}, tim);
+		if (tim > 0) {
+			tools.memoTim = setTimeout(function () {
+				memoDom.innerHTML = "";
+				tools.memoTim = 0;
+			}, tim);
+		}
 	},
 
 	memoHid: function () {
+		memoDom.innerHTML = "";
 		if (tools.memoTim) {
 			clearTimeout(tools.memoTim);
-			memoDom.innerHTML = "";
 			tools.memoTim = 0;
 		}
 	},
@@ -63,7 +65,7 @@ tools = {
 	},
 	autoSynSart: function () {
 		if (tools.autoSynId === 0) {
-			tools.autoSynId = setInterval(tools.autoSyn, 60000);
+			tools.autoSynId = setInterval(tools.autoSyn, 30000);
 		}
 	},
 	autoSynStop: function () {

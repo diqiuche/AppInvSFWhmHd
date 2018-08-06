@@ -13,6 +13,7 @@ public enum EmLocalSql {
 	SavOp("insert into Op values('<0>', '<1>', '<2>')"),
 	GetOp("select * from Op"),
 	Out("update Inventory set Num=<0> where PartsCode='<1>' and BatchNo='<2>'"),
+	GetUser("select * from User where userId='<0>' and password='<1>'"),
 
 	/***********************************************************/
 

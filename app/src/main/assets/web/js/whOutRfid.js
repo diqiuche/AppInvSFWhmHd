@@ -2,10 +2,18 @@ function init() {
 	// tools.autoSynSart();
 }
 
-qr.hdScan = function (msg) {
-	var o = tools.parseTag(msg);
-	dat.setTid(tools.tid);
-	dat.flushUI(o);
+rfid.hdScan = function (arr) {
+	var t, o;
+	for (var i = 0; i < arr.length; i ++) {
+		t = arr[i].tid;
+		o = JSON.parse(qr.getTag(t));
+		if (o !== null) {
+			dat.setTid(t);
+			dat.flushUI(o);
+			rfid.scanStop();
+			break;
+		}
+	}
 };
 
 dat = {
@@ -13,6 +21,7 @@ dat = {
 	bn: "",		// 批次号
 	codL: "",	// 库位
 	num: 0,	// 数量
+	sn: 0,		// 库存数量
 	tid: "",		// TID
 
 	// 设置物料编号
@@ -35,21 +44,30 @@ dat = {
 		}
 	},
 
-	// 设置TID
-	setTid: function (s) {
-		if (s && dat.tid !== s) {
-			dat.tid = s;
+	// 设置库存数
+	setSn: function (n) {
+		if (dat.sn !== n) {
+			dat.sn = n;
+			if (n) {
+				snumDom.innerHTML = n;
+			}  else {
+				snumDom.innerHTML = "";
+			}
 		}
 	},
 
 	// 设置库位
 	setL: function (c) {
-		if (c && dat.codL !== c) {
-			if (dat.codL) {
-				tools.memo("注：库位变动！", 3000);
-			}
+		if (dat.codL !== c) {
 			dat.codL = c;
 			sloDom.innerHTML = c;
+		}
+	},
+
+	// 设置TID
+	setTid: function (s) {
+		if (s && dat.tid !== s) {
+			dat.tid = s;
 		}
 	},
 
@@ -65,11 +83,18 @@ dat = {
 			dat.num = 0;
 			numDom.value = 0;
 		}
+		if (dat.codL && dat.sn && dat.num > dat.sn) {
+			dat.num = dat.sn;
+			numDom.value = dat.sn;
+		}
 	},
 
 	// 添加数量
 	addNum: function (n) {
 		dat.num += n;
+		if (dat.codL && dat.sn && dat.num > dat.sn) {
+			dat.num = dat.sn;
+		}
 		numDom.value = dat.num;
 	},
 
@@ -84,33 +109,25 @@ dat = {
 
 	// 刷新页面
 	flushUI: function (o) {
-		if (o) {
-			// 限制物料再次入库
+		dat.clearUI();
+		if (o && o.typ === "M") {
 			if (o.codL) {
-				dat.clearUI();
-				tools.memo("该物料已入库！");
-				return;
-			}
-
-			switch(o.typ) {
-				case "M":
+				if (o.num) {
 					dat.setCod(o.cod);
 					snamDom.innerHTML = o.nam;
 					spartDom.innerHTML = o.PartSort;
 					smfCodDom.innerHTML = o.codF;
 					dat.setBn(o.bn);
-					snumDom.innerHTML = o.num;
-					numDom.value = "";
-					dat.num = 0;
+					dat.setSn(o.num);
 					dat.setL(o.codL);
 					dat.setTid(o.tid);
-					break;
-				case "L":
-					dat.setL(o.cod);
-					break;
+				} else {
+					tools.memo("没有库存，不可出货！");
+				}
+			} else {
+				tools.memo("该物料尚未入库！");
 			}
 		} else {
-			dat.clearUI();
 			tools.memo("不可识别的信息！", 3000);
 		}
 	},
@@ -122,7 +139,8 @@ dat = {
 		spartDom.innerHTML = "";
 		smfCodDom.innerHTML = "";
 		dat.setBn("");
-		snumDom.innerHTML = "";
+		dat.setSn(0);
+		dat.setL("");
 		numDom.value = "";
 		dat.num = 0;
 	},
@@ -131,22 +149,18 @@ dat = {
 	sav: function () {
 		dat.chkNum();
 		if (dat.num > 0) {
-			if (dat.cod && dat.bn) {
-				if (dat.codL) {
-					if (qr.savIn(dat.cod, dat.bn, dat.codL, dat.num, dat.tid)) {
-						dat.clearUI();
-						tools.memo("保存成功！");
-					} else {
-						tools.memo("失败：保存失败！");
-					}
+			if (dat.cod && dat.bn && dat.codL) {
+				if (qr.savOut(dat.cod, dat.bn, dat.num)) {
+					dat.clearUI();
+					tools.memo("保存成功！");
 				} else {
-					tools.memo("失败：库位不能为空！");
+					tools.memo("失败：保存失败！");
 				}
 			} else {
 				tools.memo("失败：没有物料信息！");
 			}
 		} else {
-			tools.memo("失败：入库数量必须大于零！");
+			tools.memo("失败：出库数量必须大于零！");
 		}
 	},
 

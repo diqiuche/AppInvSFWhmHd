@@ -1,9 +1,17 @@
 function init() {}
 
-qr.hdScan = function (msg) {
-	var o = tools.parseTag(msg);
-	dat.setTid(tools.tid);
-	dat.flushUI(o);
+rfid.hdScan = function (arr) {
+	var t, o;
+	for (var i = 0; i < arr.length; i ++) {
+		t = arr[i].tid;
+		o = JSON.parse(qr.getTag(t));
+		if (o !== null) {
+			dat.setTid(t);
+			dat.flushUI(o);
+			rfid.scanStop();
+			break;
+		}
+	}
 };
 
 dat = {

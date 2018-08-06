@@ -1,11 +1,5 @@
 package tk.ziniulian.job.rfid.xc2910;
 
-import tk.ziniulian.job.rfid.Base;
-import tk.ziniulian.job.rfid.EmCb;
-import tk.ziniulian.job.rfid.EmPushMod;
-import tk.ziniulian.job.rfid.tag.T6C;
-import tk.ziniulian.util.Str;
-
 import invengo.javaapi.core.BaseReader;
 import invengo.javaapi.core.IMessage;
 import invengo.javaapi.core.IMessageNotification;
@@ -19,6 +13,11 @@ import invengo.javaapi.protocol.IRP1.Reader;
 import invengo.javaapi.protocol.IRP1.SysConfig_800;
 import invengo.javaapi.protocol.IRP1.WriteEpc;
 import invengo.javaapi.protocol.IRP1.WriteUserData_6C;
+import tk.ziniulian.job.rfid.Base;
+import tk.ziniulian.job.rfid.EmCb;
+import tk.ziniulian.job.rfid.EmPushMod;
+import tk.ziniulian.job.rfid.tag.T6C;
+import tk.ziniulian.util.Str;
 
 /**
  * XC2910型标签读写器

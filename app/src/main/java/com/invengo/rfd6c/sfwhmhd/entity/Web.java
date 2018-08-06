@@ -5,6 +5,7 @@ import android.webkit.JavascriptInterface;
 import com.google.gson.Gson;
 import com.invengo.rfd6c.sfwhmhd.Ma;
 import com.invengo.rfd6c.sfwhmhd.bean.Inventory;
+import com.invengo.rfd6c.sfwhmhd.bean.User;
 import com.invengo.rfd6c.sfwhmhd.enums.EmUh;
 import com.invengo.rfd6c.sfwhmhd.enums.EmUrl;
 
@@ -16,6 +17,7 @@ import tk.ziniulian.job.rfid.EmPushMod;
 import tk.ziniulian.job.rfid.InfTagListener;
 import tk.ziniulian.job.rfid.tag.T6C;
 import tk.ziniulian.job.rfid.xc2910.Rd;
+import tk.ziniulian.util.Encry;
 
 /**
  * 业务接口
@@ -197,7 +199,7 @@ public class Web {
 		it.setStorageLocation(codL);
 		it.setTagCode(tid);
 
-		String user = "admin";
+		String user = ldao.kvGet("userId");
 		String remark = "";
 		return ldao.in(user, remark, it);
 	}
@@ -209,7 +211,7 @@ public class Web {
 		it.setKey(cod + "," + bn);
 		it.setNum(num);
 
-		String user = "admin";
+		String user = ldao.kvGet("userId");
 		String remark = "";
 		return ldao.out(user, remark, it);
 	}
@@ -228,4 +230,36 @@ public class Web {
 		return syn.syn();
 	}
 
+	// 用户登录
+	@JavascriptInterface
+	public String signIn (String uid, String pw) {
+		String r = "";
+		User u = ldao.getUser(
+			uid,
+			Encry.getSha1(pw.trim())
+		);
+		if (u != null) {
+			r = gson.toJson(u);
+			kvSet("userId", u.getUserId());
+			kvSet("user", r);
+		}
+		return r;
+	}
+
+	// 注销用户
+	@JavascriptInterface
+	public void signOut () {
+		ldao.kvDel("user");
+	}
+
+/*------------------- 测试 ---------------------*/
+
+//	// 数据同步测试
+//	public void testSyn() {
+//		syn.pullDat(
+//				"[{\"TableName\":\"TB_USER\",\"Version\":1},{\"TableName\":\"TB_CODE\",\"Version\":0},{\"TableN" +
+//				"ame\":\"TB_STORAGE_LOCATION\",\"Version\":41},{\"TableName\":\"TB_INVENTORY\",\"Version\":8" +
+//				"7},{\"TableName\":\"TB_AREA\",\"Version\":70},{\"TableName\":\"TB_PARTS\",\"Version\":23}]"
+//		);
+//	}
 }

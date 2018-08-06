@@ -19,11 +19,15 @@ public enum EmUrl {
 	QrTt("file:///android_asset/testQR/qrDemo.html"),
 
 	// 主页
+	SignIn("file:///android_asset/web/signIn.html"),
 	Home("file:///android_asset/web/home.html"),
 	About("file:///android_asset/web/about.html"),
 	WhIn("file:///android_asset/web/whIn.html"),
+	WhInRd("file:///android_asset/web/whInRfid.html"),
 	WhOut("file:///android_asset/web/whOut.html"),
+	WhOutRd("file:///android_asset/web/whOutRfid.html"),
 	WhQry("file:///android_asset/web/whQry.html"),
+	WhQryRd("file:///android_asset/web/whQryRfid.html"),
 	WhPan("file:///android_asset/web/whPan.html"),
 	Setting("file:///android_asset/web/setting.html"),
 	Back("javascript: dat.back();"),

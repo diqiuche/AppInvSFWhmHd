@@ -32,6 +32,20 @@ qr = {
 	syn: function () {
 		return rfdo.syn();
 	},
+	signIn: function (uid, pw) {
+		return rfdo.signIn(uid, pw);
+	},
+	signOut: function () {
+		rfdo.signOut();
+	},
+	getUser: function () {
+		var u = rfdo.kvGet("user");
+		if (u) {
+			return JSON.parse(u);
+		} else {
+			return null;
+		}
+	},
 
 	kvGet: function (k) {
 		return rfdo.kvGet(k);

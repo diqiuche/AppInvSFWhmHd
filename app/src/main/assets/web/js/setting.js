@@ -16,7 +16,7 @@ dat = {
 		if (ip) {
 			if (port) {
 				if (qr.setUrl (ip, port)) {
-					tools.memo("保存成功！正在进行数据同步 ...");
+					tools.memo("保存成功！正在进行数据同步 ...", -1);
 					setTimeout(dat.syn, 100);
 				}
 			} else {

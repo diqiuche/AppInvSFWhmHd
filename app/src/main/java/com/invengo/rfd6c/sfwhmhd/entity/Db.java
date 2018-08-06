@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.invengo.rfd6c.sfwhmhd.bean.Inventory;
 import com.invengo.rfd6c.sfwhmhd.bean.Op;
+import com.invengo.rfd6c.sfwhmhd.bean.User;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -170,6 +171,32 @@ public class Db extends DbLocal {
 			o.setOpType(c.getString(1));
 			o.setInfo(c.getString(2));
 			r.add(o);
+		}
+
+		c.close();
+		db.close();
+		return r;
+	}
+
+	// 用户登录
+	public User getUser (String uid, String pw) {
+		User r = null;
+		SQLiteDatabase db = this.getReadableDatabase();
+		Cursor c = db.rawQuery(meg(EmLocalSql.GetUser.toString(), uid, pw), null);
+
+		if(c.moveToNext()) {
+			r = new User();
+			r.setUserId(c.getString(0));
+			r.setPassword(c.getString(1));
+			r.setUserName(c.getString(2));
+			r.setDeptCode(c.getString(3));
+			r.setDeptName(c.getString(4));
+			r.setGroupCode(c.getString(5));
+			r.setGroupName(c.getString(6));
+			r.setPostCode(c.getString(7));
+			r.setPostName(c.getString(8));
+			r.setTel(c.getString(9));
+			r.setIsEnable(c.getString(10));
 		}
 
 		c.close();

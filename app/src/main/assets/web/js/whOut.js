@@ -1,5 +1,5 @@
 function init() {
-	tools.autoSynSart();
+	// tools.autoSynSart();
 }
 
 qr.hdScan = function (msg) {
@@ -28,7 +28,11 @@ dat = {
 	setBn: function (s) {
 		if (dat.bn !== s) {
 			dat.bn = s;
-			sbnDom.innerHTML = s;
+			if (s && s.indexOf("AUTO") !== 0) {
+				sbnDom.innerHTML = s;
+			} else {
+				sbnDom.innerHTML = "";
+			}
 		}
 	},
 
@@ -153,7 +157,7 @@ dat = {
 	},
 
 	back: function () {
-		tools.autoSynStop();
+		// tools.autoSynStop();
 		window.history.back();
 	}
 };

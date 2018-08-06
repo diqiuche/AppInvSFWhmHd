@@ -27,6 +27,56 @@ public class User extends BaseBean {
 		return this;
 	}
 
+	public User setPassword(String password) {
+		this.password = password;
+		return this;
+	}
+
+	public User setUserName(String userName) {
+		this.userName = userName;
+		return this;
+	}
+
+	public User setDeptCode(String deptCode) {
+		this.deptCode = deptCode;
+		return this;
+	}
+
+	public User setDeptName(String deptName) {
+		this.deptName = deptName;
+		return this;
+	}
+
+	public User setGroupCode(String groupCode) {
+		this.groupCode = groupCode;
+		return this;
+	}
+
+	public User setGroupName(String groupName) {
+		this.groupName = groupName;
+		return this;
+	}
+
+	public User setPostCode(String postCode) {
+		this.postCode = postCode;
+		return this;
+	}
+
+	public User setPostName(String postName) {
+		this.postName = postName;
+		return this;
+	}
+
+	public User setTel(String tel) {
+		this.tel = tel;
+		return this;
+	}
+
+	public User setIsEnable(String isEnable) {
+		this.isEnable = isEnable;
+		return this;
+	}
+
 	public String getUserId() {
 		return userId;
 	}
