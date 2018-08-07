@@ -19,19 +19,20 @@ public enum EmUrl {
 	QrTt("file:///android_asset/testQR/qrDemo.html"),
 
 	// 主页
-	SignIn("file:///android_asset/web/signIn.html"),
-	Home("file:///android_asset/web/home.html"),
-	About("file:///android_asset/web/about.html"),
-	WhIn("file:///android_asset/web/whIn.html"),
-	WhInRd("file:///android_asset/web/whInRfid.html"),
-	WhOut("file:///android_asset/web/whOut.html"),
-	WhOutRd("file:///android_asset/web/whOutRfid.html"),
-	WhQry("file:///android_asset/web/whQry.html"),
-	WhQryRd("file:///android_asset/web/whQryRfid.html"),
-	WhPan("file:///android_asset/web/whPan.html"),
-	Setting("file:///android_asset/web/setting.html"),
 	Back("javascript: dat.back();"),
-	Err("file:///android_asset/web/err.html");
+	SignIn("file:///android_asset/web/s01/signIn.html"),
+	Home("file:///android_asset/web/s01/home.html"),
+	About("file:///android_asset/web/s01/about.html"),
+	WhIn("file:///android_asset/web/s01/whIn.html"),
+	WhInRd("file:///android_asset/web/s01/whInRfid.html"),
+	WhOut("file:///android_asset/web/s01/whOut.html"),
+	WhOutRd("file:///android_asset/web/s01/whOutRfid.html"),
+	WhQry("file:///android_asset/web/s01/whQry.html"),
+	WhQryRd("file:///android_asset/web/s01/whQryRfid.html"),
+	WhPan("file:///android_asset/web/s01/whPan.html"),
+	Setting("file:///android_asset/web/s01/setting.html"),
+	HomeRd("file:///android_asset/web/s01/homeRfid.html"),
+	Err("file:///android_asset/web/s01/err.html");
 
 	private final String url;
 	EmUrl(String u) {

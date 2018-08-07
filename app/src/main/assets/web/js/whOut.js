@@ -126,6 +126,7 @@ dat = {
 
 	// 清空页面
 	clearUI: function () {
+		tools.memoHid();
 		dat.setCod("");
 		snamDom.innerHTML = "";
 		spartDom.innerHTML = "";
@@ -142,9 +143,10 @@ dat = {
 		dat.chkNum();
 		if (dat.num > 0) {
 			if (dat.cod && dat.bn && dat.codL) {
-				if (qr.savOut(dat.cod, dat.bn, dat.num)) {
+				if (mn.savOut(dat.cod, dat.bn, dat.num)) {
 					dat.clearUI();
-					tools.memo("保存成功！");
+					tools.memo("保存成功！正在进行数据同步 ...", -1);
+					setTimeout(tools.autoSyn, 200);
 				} else {
 					tools.memo("失败：保存失败！");
 				}

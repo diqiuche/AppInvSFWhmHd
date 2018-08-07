@@ -80,6 +80,12 @@
 	padding-top: 0.3rem;
 }
 
+.hom_memo {
+	position: absolute;
+	bottom: 1rem;
+	width: 100%;
+}
+
 .hom_btn {
 	display: inline-block;
 	text-align: left;
@@ -138,6 +144,13 @@
 }
 .hom_btn_setting:hover {
 	background-image: url(../img/settingH.png);
+}
+
+.hom_btn_whRfid {
+	background-image: url(../img/rfid.png);
+}
+.hom_btn_whRfid:hover {
+	background-image: url(../img/rfidH.png);
 }
 
 /*---------------------- 入库 ----------------------*/

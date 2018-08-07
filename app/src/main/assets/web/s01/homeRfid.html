@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HomeRd</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0" />
+		<meta charset="utf-8" />
+
+		<link href="../css/base.css" rel="stylesheet" type="text/css" />
+		<link href="../css/s01.css" rel="stylesheet" type="text/css" />
+
+		<script src="../js/main.js"></script>
+		<script src="../js/tools.js"></script>
+		<script src="../js/home.js"></script>
+
+		<style type="text/css">
+		</style>
+	</head>
+
+	<body>
+		<div id="boso" class="boso Lc_noadr hom_bg">
+			<div class="lyT clrRed bfs ttl">
+				RFID 管理
+			</div>
+			<div class="lyM lyMa">
+				<div class="hom_body">
+					<a class="hom_btn mfs hom_btn_whIn" href="whInRfid.html">入库</a><!--
+					--><a class="hom_btn mfs hom_btn_whOut" href="whOutRfid.html">出库</a><!--
+					--><a class="hom_btn mfs hom_btn_whScn" href="whQryRfid.html">查询</a><!--
+					--><a class="hom_btn mfs hom_btn_whPan" href="whPan.html">盘点</a><!--
+					--><div class="hom_btn"></div>
+				</div>
+				<div id="memoDom" class="memo sfs midOut"></div>
+			</div>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		document.body.onload = init;
+	</script>
+</html>

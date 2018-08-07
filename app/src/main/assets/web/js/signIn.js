@@ -1,8 +1,8 @@
 function init() {
-	if (qr.getUser()) {
+	if (mn.getUser()) {
 		window.location.href = "home.html";
 	} else {
-		var s = qr.kvGet("userId");
+		var s = mn.kvGet("userId");
 		if (s) {
 			uidDom.value = s;
 		}
@@ -15,7 +15,7 @@ dat = {
 		if (uid) {
 			var pw = pwDom.value;
 			if (pw) {
-				if (qr.signIn(uid, pw)) {
+				if (mn.signIn(uid, pw)) {
 					window.location.href = "home.html";
 				} else {
 					tools.memo("用户名或密码错误！");

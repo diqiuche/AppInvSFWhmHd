@@ -65,6 +65,7 @@ dat = {
 
 	// 清空页面
 	clearUI: function () {
+		tools.memoHid();
 		sidDom.innerHTML = "";
 		snamDom.innerHTML = "";
 		spartDom.innerHTML = "";

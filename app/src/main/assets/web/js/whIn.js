@@ -85,11 +85,10 @@ dat = {
 	// 刷新页面
 	flushUI: function (o) {
 		if (o) {
-			// 限制物料再次入库
 			if (o.codL) {
-				dat.clearUI();
-				tools.memo("该物料已入库！");
-				return;
+				tools.memo("注：再次入库！");
+				// dat.clearUI();	// 限制物料再次入库
+				// return;
 			}
 
 			switch(o.typ) {
@@ -117,6 +116,7 @@ dat = {
 
 	// 清空页面
 	clearUI: function () {
+		tools.memoHid();
 		dat.setCod("");
 		snamDom.innerHTML = "";
 		spartDom.innerHTML = "";
@@ -133,9 +133,10 @@ dat = {
 		if (dat.num > 0) {
 			if (dat.cod && dat.bn) {
 				if (dat.codL) {
-					if (qr.savIn(dat.cod, dat.bn, dat.codL, dat.num, dat.tid)) {
+					if (mn.savIn(dat.cod, dat.bn, dat.codL, dat.num, dat.tid)) {
 						dat.clearUI();
-						tools.memo("保存成功！");
+						tools.memo("保存成功！正在进行数据同步 ...", -1);
+						setTimeout(tools.autoSyn, 200);
 					} else {
 						tools.memo("失败：保存失败！");
 					}

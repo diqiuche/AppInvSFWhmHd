@@ -4,7 +4,7 @@ function init() {
 
 dat = {
 	signOut: function () {
-		qr.signOut();
+		mn.signOut();
 		window.location.href = "signIn.html";
 	},
 
