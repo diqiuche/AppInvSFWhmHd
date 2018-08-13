@@ -28,7 +28,12 @@ dat = {
 		if (dat.bn !== s) {
 			dat.bn = s;
 			if (s && s.indexOf("AUTO") !== 0) {
-				sbnDom.innerHTML = s;
+				var n = s.lastIndexOf(".");
+				if (n < 0) {
+					sbnDom.innerHTML = s;
+				} else {
+					sbnDom.innerHTML = s.substring(0, n);
+				}
 			} else {
 				sbnDom.innerHTML = "";
 			}
