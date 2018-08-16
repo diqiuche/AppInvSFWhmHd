@@ -74,8 +74,8 @@ public class Db extends DbLocal {
 		return r;
 	}
 
-	// 获取单个标签信息 By TID
-	public TagP getTag (String tid) {
+	// 获取单个物料标签信息 By TID
+	public TagP getPTagByTid (String tid) {
 		TagP r = null;
 		SQLiteDatabase db = this.getReadableDatabase();
 
@@ -96,6 +96,22 @@ public class Db extends DbLocal {
 				r.setPartSort(c.getString(2));
 				r.setCodF(c.getString(3));
 			}
+		}
+
+		c.close();
+		db.close();
+		return r;
+	}
+
+	// 获取单个库位标签信息 By TID
+	public TagL getLTagByTid (String tid) {
+		TagL r = null;
+		SQLiteDatabase db = this.getReadableDatabase();
+
+		Cursor c = db.rawQuery(meg(EmLocalSql.GetLocByTid.toString(), tid), null);
+		if (c.moveToNext()) {
+			r = new TagL();
+			r.setCod(c.getString(0));
 		}
 
 		c.close();

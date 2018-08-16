@@ -10,6 +10,7 @@ public enum EmLocalSql {
 	GetParts("select * from Parts where PartCode='<0>'"),
 	GetIt("select * from Inventory where PartsCode='<0>' and BatchNo='<1>'"),
 	GetItByTid("select * from Inventory where TagCode='<0>'"),
+	GetLocByTid("select * from Location where TagCode='<0>'"),
 	SavOp("insert into Op values('<0>', '<1>', '<2>')"),
 	GetOp("select * from Op"),
 	Out("update Inventory set Num=<0> where PartsCode='<1>' and BatchNo='<2>'"),

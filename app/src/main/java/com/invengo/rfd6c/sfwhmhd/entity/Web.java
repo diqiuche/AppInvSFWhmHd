@@ -186,8 +186,16 @@ public class Web {
 	// 用 TID 解析标签
 	@JavascriptInterface
 	public String getTag(String tid) {
-		TagP o = ldao.getTag(tid);
-		return gson.toJson(o);
+		String r;
+//Log.i("----", tid);
+		TagP p = ldao.getPTagByTid(tid);
+		if (p == null) {
+			TagL l = ldao.getLTagByTid(tid);
+			r = gson.toJson(l);
+		} else {
+			r = gson.toJson(p);
+		}
+		return r;
 	}
 
 	// 入库保存
