@@ -9,6 +9,8 @@ import com.invengo.rfd6c.sfwhmhd.bean.User;
 import com.invengo.rfd6c.sfwhmhd.enums.EmUh;
 import com.invengo.rfd6c.sfwhmhd.enums.EmUrl;
 
+import java.util.List;
+
 import tk.ziniulian.job.qr.EmQrCb;
 import tk.ziniulian.job.qr.InfQrListener;
 import tk.ziniulian.job.qr.xc2910.Qrd;
@@ -222,6 +224,13 @@ public class Web {
 		String user = ldao.kvGet("userId");
 		String remark = "";
 		return ldao.out(user, remark, it);
+	}
+
+	// 获取库位详情
+	@JavascriptInterface
+	public String qryLocDtl(String codL) {
+		List<TagP> a = ldao.qryLocDtl(codL);
+		return gson.toJson(a);
 	}
 
 /*------------------- 其它 ---------------------*/

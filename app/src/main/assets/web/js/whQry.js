@@ -48,7 +48,7 @@ dat = {
 					break;
 				case "L":
 					lidDom.innerHTML = o.cod;
-					dat.show(true);
+					dat.show(o.cod);
 					break;
 			}
 		} else {
@@ -58,8 +58,27 @@ dat = {
 	},
 
 	// 显示库位信息
-	show: function (b) {
-		if (b) {
+	show: function (c) {
+		if (c) {
+			var r, d;
+			var s = mn.qryLocDtl(c);
+			var o = JSON.parse(mn.qryLocDtl(c));
+			tbs.innerHTML = "";
+			for (var i = 0; i < o.length; i ++) {
+				r = document.createElement("tr");
+
+				// 名称
+				d = document.createElement("td");
+				d.innerHTML = o[i].nam;
+				r.appendChild(d);
+
+				// 数量
+				d = document.createElement("td");
+				d.innerHTML = o[i].num;
+				r.appendChild(d);
+
+				tbs.appendChild(r);
+			}
 			soutDom.className = "in_out Lc_nosee";
 			loutDom.className = "in_out";
 		} else {

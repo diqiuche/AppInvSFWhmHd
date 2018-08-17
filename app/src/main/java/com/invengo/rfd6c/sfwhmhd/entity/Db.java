@@ -220,4 +220,28 @@ public class Db extends DbLocal {
 		return r;
 	}
 
+	// 获取库位详情
+	public List<TagP> qryLocDtl (String codL) {
+		List<TagP> r = new ArrayList<>();
+		TagP p;
+		SQLiteDatabase db = this.getReadableDatabase();
+
+		Cursor c = db.rawQuery(meg(EmLocalSql.QryLocDtl.toString(), codL), null);
+		while (c.moveToNext()) {
+			p = new TagP();
+			p.setCodL(c.getString(0));
+			p.setCod(c.getString(1));
+			p.setBn(c.getString(2));
+			p.setNum(c.getInt(3));
+			p.setNam(c.getString(4));
+			p.setPartSort(c.getString(5));
+			p.setCodF(c.getString(6));
+			r.add(p);
+		}
+
+		c.close();
+		db.close();
+		return r;
+	}
+
 }

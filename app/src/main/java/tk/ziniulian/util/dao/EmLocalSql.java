@@ -15,6 +15,7 @@ public enum EmLocalSql {
 	GetOp("select * from Op"),
 	Out("update Inventory set Num=<0> where PartsCode='<1>' and BatchNo='<2>'"),
 	GetUser("select * from User where userId='<0>' and password='<1>'"),
+	QryLocDtl("select Inventory.StorageLocation, Inventory.PartsCode, Inventory.BatchNo, Inventory.Num, Parts.PartName, Parts.PartSort, Parts.FactoryCode from Inventory, Parts where Inventory.PartsCode=Parts.PartCode and Inventory.StorageLocation='<0>'"),
 
 	/***********************************************************/
 

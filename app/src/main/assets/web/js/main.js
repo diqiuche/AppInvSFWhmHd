@@ -5,6 +5,9 @@ mn = {
 	getTag: function (tid) {
 		return rfdo.getTag(tid);
 	},
+	qryLocDtl: function (codL) {
+		return rfdo.qryLocDtl(codL);
+	},
 
 	savIn: function (cod, bn, codL, num, tid) {
 		return rfdo.savIn (cod, bn, codL, num, tid);
